@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RightKind: 10,000 Sachets in Bangalore</title>
+<meta name="description" content="Sampling plan: about 15,000 of the right people taste RightKind yeast protein over five weeks, and we show which of them buy.">
+<meta property="og:title" content="RightKind: 10,000 Sachets in Bangalore">
+<meta property="og:description" content="Sampling plan: 15,000 people, 75 stall-days, about Rs 4 lakh net, about 2,550 buyers.">
+<meta property="og:image" content="https://devanshindian.github.io/rightkind-sampling-plan/assets/og.png">
+<meta property="og:url" content="https://devanshindian.github.io/rightkind-sampling-plan/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/logo-color.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; box-sizing:border-box; }
+html, body { height:100%; }
+body { font-family:'Poppins', Arial, sans-serif; background:#041023; -webkit-text-size-adjust:100%; }
+table { border-collapse:collapse; width:100%; }
+th, td { padding:0.35em 0.6em; border:1px solid #D5DCE6; text-align:left; vertical-align:top; }
+ul, ol { padding-left:1.2em; }
+section { width:1920px; height:1080px; position:relative; overflow:hidden; }
+
+/* ---------- wide screens: presenter mode ---------- */
+@media (min-width: 900px) {
+  body { overflow:hidden; }
+  #stage { position:fixed; inset:0; }
+  #stage section { position:absolute; left:50%; top:50%; display:none !important; transform-origin:center center; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+  #stage section.active { display:flex !important; }
+  #stage section#cover.active { display:flex !important; }
+  .bar { position:fixed; left:0; right:0; bottom:0; height:52px; display:flex; align-items:center; justify-content:center; gap:14px;
+         color:#A6B4C8; font-size:14px; background:linear-gradient(transparent, rgba(4,16,35,.85)); }
+  .bar button, .bar a { background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.15); border-radius:999px;
+         padding:6px 14px; font:inherit; cursor:pointer; text-decoration:none; }
+  .bar button:hover, .bar a:hover { background:rgba(255,255,255,.18); }
+  .mobile-only { display:none; }
+}
+
+/* ---------- phones: reader mode (slides reflow into one page) ---------- */
+@media (max-width: 899px) {
+  body { background:#F7F9FC; }
+  .bar { display:none; }
+  .mobile-top { display:flex; align-items:center; justify-content:space-between; padding:14px 18px; background:#041023; position:sticky; top:0; z-index:5; }
+  .mobile-top img { width:110px; height:28px; object-fit:contain; }
+  .mobile-top a { color:#4DE1F8; font-size:13px; text-decoration:none; border:1px solid #1E3A5F; padding:6px 12px; border-radius:999px; }
+  #stage section { width:100% !important; height:auto !important; padding:32px 18px !important; display:flex !important;
+    flex-direction:column !important; gap:18px !important; transform:none !important; border-bottom:1px solid #E3E8EF; }
+  #stage section * { width:auto !important; max-width:100%; }
+  #stage section div { flex-direction:column !important; gap:12px !important; }
+  #stage section div[style*="display:grid"] { display:flex !important; }
+  #stage section div[style*="space-between"]:not([style*="column"]) { flex-direction:row !important; align-items:center; }
+  #stage section div[style*="padding"] { padding:16px !important; }
+  #stage section div[style*="padding:40px 0px 0px 0px"], #stage section div[style*="padding:20px 0px 0px 0px"],
+  #stage section div[style*="padding:16px 0px 16px 0px"], #stage section div[style*="padding:0px 0px 8px 0px"] { padding:12px 0 !important; }
+  #stage section [style*="position:absolute"] { display:none !important; }
+  #stage section h1 { font-size:38px !important; letter-spacing:-1px !important; }
+  #stage section h2 { font-size:26px !important; letter-spacing:-0.5px !important; }
+  #stage section h3 { font-size:18px !important; white-space:normal !important; }
+  #stage section p, #stage section li, #stage section td, #stage section th { font-size:15px !important; line-height:1.5 !important; }
+  #stage section p[style*="font-size:64px"], #stage section p[style*="font-size:72px"],
+  #stage section p[style*="font-size:56px"], #stage section p[style*="font-size:44px"] { font-size:34px !important; line-height:1.1 !important; }
+  #stage section p[style*="letter-spacing:3px"], #stage section p[style*="letter-spacing:4px"] { font-size:12px !important; letter-spacing:2px !important; }
+  #stage section p[style*="border-radius:999px"] { align-self:flex-start; padding:4px 12px !important; }
+  #stage section img[alt="RightKind"] { width:120px !important; height:30px !important; }
+  #stage section#cover img[alt="RightKind"], #stage section#outcome img[alt="RightKind"] { display:none; }
+  #stage section img[src*="hero"] { width:100% !important; height:300px !important; border-radius:16px !important; order:-1; }
+  #stage section table { display:block; overflow-x:auto; }
+  #stage section table td, #stage section table th { min-width:84px; }
+  #stage section#timeline table tbody, #stage section#venues table tbody { display:table; min-width:620px; }
+  #stage section#timeline table, #stage section#cost table, #stage section#venues table { border:0; -webkit-overflow-scrolling:touch; }
+  #stage section#timeline td:first-child, #stage section#timeline th:first-child { min-width:120px; }
+  #stage section#timeline td:last-child, #stage section#timeline th:last-child { min-width:300px; }
+  #stage section#cost td:nth-child(2), #stage section#cost th:nth-child(2) { display:none; }
+  #stage section#cost table { display:table; }
+  #stage section#cost td, #stage section#cost th { min-width:0; }
+  #stage section#timeline h2::after, #stage section#venues h2::after { content:"Swipe the table sideways to see all columns"; display:block; font-size:12px; font-weight:400; letter-spacing:0; color:#64748B; margin-top:6px; }
+  .mobile-foot { padding:24px 18px 40px; text-align:center; font-size:13px; color:#64748B; background:#F7F9FC; }
+  .mobile-foot a { color:#0458BB; }
+}
+</style>
+</head><body>
+<div class="mobile-top mobile-only"><img src="assets/logo-white.png" alt="RightKind"><a href="RightKind-Sampling-Plan-Deck.pdf">Download PDF</a></div>
+<main id="stage">
+<section id="cover" data-transition="fade" style="background:linear-gradient(135deg, #041023 0%, #0A2A4F 100%); color:#FFFFFF; font-family:'Poppins', Arial, sans-serif; padding:96px 128px; display:flex; gap:64px; align-items:stretch">
+<div style="flex:1; display:flex; flex-direction:column; justify-content:space-between">
+<img src="assets/logo-white.png" alt="RightKind" style="width:240px; height:60px; object-fit:contain">
+<div style="display:flex; flex-direction:column; gap:24px">
+<p style="font-size:24px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#4DE1F8">Sampling plan · Bangalore</p>
+<h1 style="font-size:96px; font-weight:600; line-height:1.05; letter-spacing:-2.5px; color:#FFFFFF">10,000 sachets<br>in five weeks</h1>
+<p style="font-size:28px; line-height:1.45; color:#A6B4C8; width:860px">Get about 15,000 of the right people to taste RightKind yeast protein, and show which of them buy.</p>
+</div>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:32px 48px; border-top:1px solid #1E3A5F; padding:40px 0px 0px 0px">
+<div style="display:flex; flex-direction:column; gap:8px">
+<p style="font-size:64px; font-weight:600; letter-spacing:-1.5px; line-height:1; font-variant-numeric:tabular-nums">15,000</p>
+<p style="font-size:24px; line-height:1.4; color:#A6B4C8">screened people taste two flavours on the spot</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:8px">
+<p style="font-size:64px; font-weight:600; letter-spacing:-1.5px; line-height:1; font-variant-numeric:tabular-nums">75</p>
+<p style="font-size:24px; line-height:1.4; color:#A6B4C8">stall-days in three clusters, run by two crews</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:8px">
+<p style="font-size:64px; font-weight:600; letter-spacing:-1.5px; line-height:1; font-variant-numeric:tabular-nums">Rs 4L</p>
+<p style="font-size:24px; line-height:1.4; color:#A6B4C8">net cost after stall sales (about Rs 8.7L to run)</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:8px">
+<p style="font-size:64px; font-weight:600; letter-spacing:-1.5px; line-height:1; color:#4DE1F8; font-variant-numeric:tabular-nums">2,550</p>
+<p style="font-size:24px; line-height:1.4; color:#A6B4C8">buyers within 30 days (17%), plus feedback from all 15,000</p>
+</div>
+</div>
+</div>
+<img src="assets/hero.jpg" alt="RightKind sachets: Kesar Kulfi, Salted Caramel and Toffee Frappe" style="width:640px; height:888px; object-fit:cover; border-radius:24px">
+
+</section>
+<section id="assumptions" data-transition="fade" style="background:#F7F9FC; color:#0B1A2E; font-family:'Poppins', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#0458BB">01 · Assumptions</p>
+<h2 style="font-size:56px; font-weight:600; letter-spacing:-1.5px; line-height:1.1">What the plan rests on</h2>
+</div>
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px">
+<div style="background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:32px 36px; display:flex; flex-direction:column; gap:8px">
+<p style="font-size:24px; line-height:1.4; color:#64748B">1 sachet makes</p>
+<p style="font-size:64px; font-weight:600; letter-spacing:-1.5px; line-height:1; font-variant-numeric:tabular-nums">3 cups</p>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">of about 80 ml each</p>
+</div>
+<div style="background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:32px 36px; display:flex; flex-direction:column; gap:8px">
+<p style="font-size:24px; line-height:1.4; color:#64748B">10,000 sachets make</p>
+<p style="font-size:64px; font-weight:600; letter-spacing:-1.5px; line-height:1; font-variant-numeric:tabular-nums">30,000 cups</p>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">opened and poured in front of people</p>
+</div>
+<div style="background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:32px 36px; display:flex; flex-direction:column; gap:8px">
+<p style="font-size:24px; line-height:1.4; color:#64748B">2 cups a person means</p>
+<p style="font-size:64px; font-weight:600; letter-spacing:-1.5px; line-height:1; color:#0458BB; font-variant-numeric:tabular-nums">15,000 people</p>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">each tasting two flavours side by side</p>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:20px">
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">About people</h3>
+<ul style="font-size:26px; line-height:1.45; color:#4A5568; display:flex; flex-direction:column; gap:14px; width:1500px">
+<li>Our buyers already take protein or want more of it. They need a reason to pick us.</li>
+<li>RightKind costs a little more than other brands, so our buyers choose on <b style="color:#0B1A2E">taste</b> and will pay for it.</li>
+<li>They already buy health products online and on Blinkit, so once they like it, ordering takes minutes.</li>
+<li>Tasting on the spot builds far more intent than a take-home sachet.</li>
+<li>Seeing the brand twice (at work and at home, or at a run and at home) makes people remember it. That is why we cluster.</li>
+</ul>
+</div>
+<img src="assets/logo-color.png" alt="RightKind" style="position:absolute; left:128px; bottom:64px; width:152px; height:38px; object-fit:contain">
+<p style="position:absolute; right:128px; bottom:64px; width:200px; font-size:24px; color:#64748B; text-align:right">02</p>
+
+</section>
+<section id="numbers" data-transition="fade" style="background:#F7F9FC; color:#0B1A2E; font-family:'Poppins', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#0458BB">01 · Assumptions</p>
+<h2 style="font-size:56px; font-weight:600; letter-spacing:-1.5px; line-height:1.1">The numbers we assume, and where they come from</h2>
+</div>
+<table style="font-size:24px; color:#4A5568; line-height:1.4">
+<tr style="background:#E6EEF9"><th style="width:34%; color:#0B1A2E; font-weight:600">Assumption</th><th style="width:66%; color:#0B1A2E; font-weight:600">Basis</th></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">About 17% buy (range 12 to 22%), so about 2,550 people</td><td>NoBrokerHood reports 20 to 25% conversion from society sampling. US D2C brands sampling at run clubs (Modern Retail) see 20 to 30%. In-store sampling converts 26% of people trying a new product (Arbitron / Edison, 2008).</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">People sampled per stall-day: society 300, tech park 350, run club 150</td><td>Stalls run 8 to 10 hours with two people always present, so about 30 to 45 people an hour is doable. Run clubs arrive together at the finish.</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Cost of one sachet: Rs 20</td><td>Given.</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Society stall fee: Rs 10,000 a day</td><td>Agencies such as Brandland list them at about Rs 17,000 with their own staff; we assume Rs 10,000 going direct.</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Amazon and Blinkit allow single-use offer codes</td><td>Amazon sellers can already create them. If Blinkit doesn't allow them, we compare Blinkit sales by area.</td></tr>
+</table>
+<img src="assets/logo-color.png" alt="RightKind" style="position:absolute; left:128px; bottom:64px; width:152px; height:38px; object-fit:contain">
+<p style="position:absolute; right:128px; bottom:64px; width:200px; font-size:24px; color:#64748B; text-align:right">03</p>
+
+</section>
+<section id="personas" data-transition="fade" style="background:#F7F9FC; color:#0B1A2E; font-family:'Poppins', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#0458BB">02 · Who we target</p>
+<h2 style="font-size:56px; font-weight:600; letter-spacing:-1.5px; line-height:1.1">Three personas, in order of priority</h2>
+</div>
+<p style="font-size:26px; line-height:1.45; color:#4A5568; width:1560px">A persona makes the cut only if our pitch (taste-first, dairy-free protein that feels like an upgrade) fixes a real problem for them, they can pay a premium and buy again, and we can reach many of them cheaply in one place.</p>
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px">
+<div style="display:flex; flex-direction:column; gap:16px; background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:36px">
+<div style="display:flex; justify-content:space-between; align-items:center">
+<p style="font-size:24px; font-weight:600; color:#0458BB; background:#E6EEF9; padding:6px 16px; border-radius:999px">High priority</p>
+<p style="font-size:24px; color:#64748B; font-variant-numeric:tabular-nums">~50% sampled</p>
+</div>
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">Active people: runners and pickleball players</h3>
+<p style="font-size:24px; line-height:1.45; color:#4A5568">Already think about protein and recovery, and like trying new brands. Dairy-free and good taste both appeal to them.</p>
+<p style="font-size:24px; line-height:1.4; color:#0B1A2E; border-top:1px solid #E3E8EF; padding:16px 0px 0px 0px"><b>Where:</b> run clubs and pickleball events</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:16px; background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:36px">
+<div style="display:flex; justify-content:space-between; align-items:center">
+<p style="font-size:24px; font-weight:600; color:#0458BB; background:#E6EEF9; padding:6px 16px; border-radius:999px">High priority</p>
+<p style="font-size:24px; color:#64748B; font-variant-numeric:tabular-nums">~40% sampled</p>
+</div>
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">Health-aware families, parents 30 to 50</h3>
+<p style="font-size:24px; line-height:1.45; color:#4A5568">One parent buys for the house, so one yes means several users. Vegetarian homes often run short on protein.</p>
+<p style="font-size:24px; line-height:1.4; color:#0B1A2E; border-top:1px solid #E3E8EF; padding:16px 0px 0px 0px"><b>Where:</b> weekend stalls in large gated societies</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:16px; background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:36px">
+<div style="display:flex; justify-content:space-between; align-items:center">
+<p style="font-size:24px; font-weight:600; color:#475569; background:#EEF1F5; padding:6px 16px; border-radius:999px">Medium priority</p>
+<p style="font-size:24px; color:#64748B; font-variant-numeric:tabular-nums">~10% sampled</p>
+</div>
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">Tech professionals, 24 to 38</h3>
+<p style="font-size:24px; line-height:1.45; color:#4A5568">Short on protein and can pay, but rushed and convenience-driven, so less likely to act on one taste. Many also live in the societies we visit.</p>
+<p style="font-size:24px; line-height:1.4; color:#0B1A2E; border-top:1px solid #E3E8EF; padding:16px 0px 0px 0px"><b>Where:</b> tech park food courts, Tue to Thu</p>
+</div>
+</div>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">Who we skip:</b> college students (a Rs 1,699 bag is too much for pocket money) and mall crowds (cheap reach, wrong people).</p>
+<img src="assets/logo-color.png" alt="RightKind" style="position:absolute; left:128px; bottom:64px; width:152px; height:38px; object-fit:contain">
+<p style="position:absolute; right:128px; bottom:64px; width:200px; font-size:24px; color:#64748B; text-align:right">04</p>
+
+</section>
+<section id="clusters" data-transition="fade" style="background:#F7F9FC; color:#0B1A2E; font-family:'Poppins', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#0458BB">03 · Where</p>
+<h2 style="font-size:56px; font-weight:600; letter-spacing:-1.5px; line-height:1.1">Three clusters, so people see us more than once</h2>
+</div>
+<p style="font-size:26px; line-height:1.45; color:#4A5568; width:1560px">We pick clusters on persona density, venues that allow stalls, FirstClub presence (it stocks RightKind) and Blinkit dark stores (launching soon).</p>
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px; background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:36px">
+<p style="font-size:64px; font-weight:600; letter-spacing:-1.5px; line-height:1; color:#0458BB; font-variant-numeric:tabular-nums">7,500</p>
+<p style="font-size:24px; line-height:1.4; color:#64748B; font-variant-numeric:tabular-nums">people · 5,000 sachets · 7 Blinkit stores</p>
+<h3 style="font-size:30px; font-weight:600; line-height:1.2; padding:12px 0px 0px 0px">HSR / Bellandur / Koramangala</h3>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">All three personas live, work and exercise here.</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px; background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:36px">
+<p style="font-size:64px; font-weight:600; letter-spacing:-1.5px; line-height:1; color:#0458BB; font-variant-numeric:tabular-nums">5,250</p>
+<p style="font-size:24px; line-height:1.4; color:#64748B; font-variant-numeric:tabular-nums">people · 3,500 sachets · 9 Blinkit stores</p>
+<h3 style="font-size:30px; font-weight:600; line-height:1.2; padding:12px 0px 0px 0px">Whitefield / Mahadevapura</h3>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">The city's biggest societies next to big tech parks.</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px; background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:36px">
+<p style="font-size:64px; font-weight:600; letter-spacing:-1.5px; line-height:1; color:#0458BB; font-variant-numeric:tabular-nums">2,250</p>
+<p style="font-size:24px; line-height:1.4; color:#64748B; font-variant-numeric:tabular-nums">people · 1,500 sachets · 5 Blinkit stores</p>
+<h3 style="font-size:30px; font-weight:600; line-height:1.2; padding:12px 0px 0px 0px">Indiranagar / Domlur</h3>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">The most visible active crowd and one huge office park.</p>
+</div>
+</div>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">Left out for now:</b> JP Nagar (few tech parks), Hebbal / Manyata (almost no Blinkit stores), Electronic City (closed campuses), West Bangalore (weakest quick-commerce coverage). Cubbon Park bans commercial activity.</p>
+<img src="assets/logo-color.png" alt="RightKind" style="position:absolute; left:128px; bottom:64px; width:152px; height:38px; object-fit:contain">
+<p style="position:absolute; right:128px; bottom:64px; width:200px; font-size:24px; color:#64748B; text-align:right">05</p>
+
+</section>
+<section id="venues" data-transition="fade" style="background:#F7F9FC; color:#0B1A2E; font-family:'Poppins', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#0458BB">03 · Where</p>
+<h2 style="font-size:56px; font-weight:600; letter-spacing:-1.5px; line-height:1.1">Where we find each persona in each cluster</h2>
+</div>
+<table style="font-size:24px; color:#4A5568; line-height:1.4">
+<tr style="background:#E6EEF9"><th style="width:22%; color:#0B1A2E; font-weight:600">Cluster</th><th style="width:26%; color:#0B1A2E; font-weight:600">Active people</th><th style="width:26%; color:#0B1A2E; font-weight:600">Families</th><th style="width:26%; color:#0B1A2E; font-weight:600">Tech professionals</th></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">HSR / Bellandur / Koramangala</td><td>HSR Run Club, Runners High, GoRally, CoPlay</td><td>Sobha Dream Acres, Adarsh Palm Retreat</td><td>Prestige Tech Park, Embassy Tech Village</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Whitefield / Mahadevapura</td><td>Runners High Whitefield, GoRally Whitefield</td><td>Prestige Lakeside Habitat, Prestige Shantiniketan</td><td>Bagmane Tech Park, Prestige Shantiniketan campus</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Indiranagar / Domlur</td><td>GoRally Indiranagar, Indiranagar Runners, 100 Feet Road studios</td><td style="color:#64748B">None listed</td><td>Embassy Golf Links</td></tr>
+</table>
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px">
+<div style="display:flex; flex-direction:column; gap:8px; border-top:3px solid #0458BB; padding:20px 0px 0px 0px">
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">Active people</h3>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">Run clubs and pickleball events, at the finish. Weekday mornings and evenings.</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:8px; border-top:3px solid #0458BB; padding:20px 0px 0px 0px">
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">Families</h3>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">Weekend stalls in large gated societies.</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:8px; border-top:3px solid #0458BB; padding:20px 0px 0px 0px">
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">Tech professionals</h3>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">Tech park food courts, Tuesday to Thursday.</p>
+</div>
+</div>
+<img src="assets/logo-color.png" alt="RightKind" style="position:absolute; left:128px; bottom:64px; width:152px; height:38px; object-fit:contain">
+<p style="position:absolute; right:128px; bottom:64px; width:200px; font-size:24px; color:#64748B; text-align:right">06</p>
+
+</section>
+<section id="channels" data-transition="fade" style="background:#F7F9FC; color:#0B1A2E; font-family:'Poppins', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:36px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#0458BB">04 · Channels</p>
+<h2 style="font-size:56px; font-weight:600; letter-spacing:-1.5px; line-height:1.1">75 stall-days, 15,000 people, 10,000 sachets</h2>
+</div>
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px">
+<div style="display:flex; flex-direction:column; gap:12px; background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:32px">
+<p style="font-size:24px; color:#64748B">Active people</p>
+<h3 style="font-size:30px; font-weight:600; line-height:1.2; white-space:nowrap">Run clubs and pickleball</h3>
+<p style="font-size:24px; font-weight:600; color:#0458BB; background:#E6EEF9; padding:6px 16px; border-radius:999px; width:196px">High priority</p>
+<div style="display:flex; flex-direction:column; gap:4px; border-top:1px solid #E3E8EF; border-bottom:1px solid #E3E8EF; padding:16px 0px 16px 0px">
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">51</b> events</p>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">150</b> people a day</p>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">~50%</b> of people and sachets</p>
+</div>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">When:</b> weekday mornings, evenings</p>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">How we get in:</b> club captains and venue owners</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px; background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:32px">
+<p style="font-size:24px; color:#64748B">Health-aware families</p>
+<h3 style="font-size:30px; font-weight:600; line-height:1.2; white-space:nowrap">Society stalls</h3>
+<p style="font-size:24px; font-weight:600; color:#0458BB; background:#E6EEF9; padding:6px 16px; border-radius:999px; width:196px">High priority</p>
+<div style="display:flex; flex-direction:column; gap:4px; border-top:1px solid #E3E8EF; border-bottom:1px solid #E3E8EF; padding:16px 0px 16px 0px">
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">20</b> days</p>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">300</b> people a day</p>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">~40%</b> of people and sachets</p>
+</div>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">When:</b> weekends</p>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">How we get in:</b> direct deal with the residents' association; Brandland or NoBrokerHood as fallback</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px; background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:32px">
+<p style="font-size:24px; color:#64748B">Tech professionals</p>
+<h3 style="font-size:30px; font-weight:600; line-height:1.2; white-space:nowrap">Tech park stalls</h3>
+<p style="font-size:24px; font-weight:600; color:#475569; background:#EEF1F5; padding:6px 16px; border-radius:999px; width:232px">Medium priority</p>
+<div style="display:flex; flex-direction:column; gap:4px; border-top:1px solid #E3E8EF; border-bottom:1px solid #E3E8EF; padding:16px 0px 16px 0px">
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">4</b> days</p>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">350</b> people a day</p>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">~10%</b> of people and sachets</p>
+</div>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">When:</b> Tue to Thu</p>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">How we get in:</b> the park office or an agency (Brandland, The Media Ant)</p>
+</div>
+</div>
+<p style="font-size:24px; line-height:1.4; color:#4A5568"><b style="color:#0B1A2E">What we leave out:</b> <u><b style="color:#0B1A2E">Marathons</b></u> (expensive, crowds too big to screen) and <u><b style="color:#0B1A2E">gym partners</b></u> (we can't check that members taste it, or track them). Tech parks get the fewest days: expensive, and a medium-priority persona.</p>
+<img src="assets/logo-color.png" alt="RightKind" style="position:absolute; left:128px; bottom:64px; width:152px; height:38px; object-fit:contain">
+<p style="position:absolute; right:128px; bottom:64px; width:200px; font-size:24px; color:#64748B; text-align:right">07</p>
+
+</section>
+<section id="moment" data-transition="fade" style="background:#F7F9FC; color:#0B1A2E; font-family:'Poppins', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#0458BB">05 · The sampling moment</p>
+<h2 style="font-size:56px; font-weight:600; letter-spacing:-1.5px; line-height:1.1">Screen, taste, feedback, all in a few minutes</h2>
+</div>
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr 1fr; gap:12px">
+<div style="background:#041023; border-radius:12px; padding:22px 24px; display:flex; flex-direction:column; gap:4px"><p style="font-size:24px; color:#4DE1F8; font-weight:600">1</p><p style="font-size:24px; color:#FFFFFF; line-height:1.3">Soft screen, 20 seconds</p></div>
+<div style="background:#041023; border-radius:12px; padding:22px 24px; display:flex; flex-direction:column; gap:4px"><p style="font-size:24px; color:#4DE1F8; font-weight:600">2</p><p style="font-size:24px; color:#FFFFFF; line-height:1.3">Taste 2 flavours side by side</p></div>
+<div style="background:#041023; border-radius:12px; padding:22px 24px; display:flex; flex-direction:column; gap:4px"><p style="font-size:24px; color:#4DE1F8; font-weight:600">3</p><p style="font-size:24px; color:#FFFFFF; line-height:1.3">Give feedback</p></div>
+<div style="background:#041023; border-radius:12px; padding:22px 24px; display:flex; flex-direction:column; gap:4px"><p style="font-size:24px; color:#4DE1F8; font-weight:600">4</p><p style="font-size:24px; color:#FFFFFF; line-height:1.3">Register on WhatsApp</p></div>
+<div style="background:#041023; border-radius:12px; padding:22px 24px; display:flex; flex-direction:column; gap:4px"><p style="font-size:24px; color:#4DE1F8; font-weight:600">5</p><p style="font-size:24px; color:#FFFFFF; line-height:1.3">Leave with an offer code</p></div>
+</div>
+<div style="display:grid; grid-template-columns:1.15fr 1fr 1fr 1fr; gap:32px">
+<div style="display:flex; flex-direction:column; gap:16px">
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">Soft screen</h3>
+<ol style="font-size:24px; line-height:1.4; color:#4A5568; display:flex; flex-direction:column; gap:10px">
+<li>Do you take any protein product now, or are you trying to add more protein to your diet?</li>
+<li>Do you work out or play a sport at least once a week, or avoid dairy?</li>
+<li>Do you order groceries or health products online?</li>
+</ol>
+<p style="font-size:24px; line-height:1.4; color:#0458BB; font-weight:600">We prefer people who say yes to 1 or 2, and yes to 3.</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:16px">
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">Taste</h3>
+<ul style="font-size:24px; line-height:1.4; color:#4A5568; display:flex; flex-direction:column; gap:10px">
+<li>We open each sachet in front of people and shake it into 3 small cups of about 80 ml.</li>
+<li>Each person tastes 2 flavours and picks one. We rotate the pairs so every flavour gets compared.</li>
+</ul>
+</div>
+<div style="display:flex; flex-direction:column; gap:16px">
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">Feedback</h3>
+<ul style="font-size:24px; line-height:1.4; color:#4A5568; display:flex; flex-direction:column; gap:10px">
+<li>How much did you like it, 1 to 5?</li>
+<li>Would you buy it?</li>
+<li>Which of the two did you prefer?</li>
+<li>What would you change?</li>
+</ul>
+<p style="font-size:24px; line-height:1.4; color:#0458BB; font-weight:600">Captured while they drink. Every answer is saved against their registration, so it doubles as product research.</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:16px">
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">What pulls a crowd</h3>
+<ul style="font-size:24px; line-height:1.4; color:#4A5568; display:flex; flex-direction:column; gap:10px">
+<li><b style="color:#0B1A2E">Protein check:</b> people enter their weight and meals and see the protein they need against what they eat. Doubles as screening.</li>
+<li><b style="color:#0B1A2E">Blind taste test</b> against a leading protein shake, with a live scoreboard, in societies where people have time.</li>
+</ul>
+</div>
+</div>
+<img src="assets/logo-color.png" alt="RightKind" style="position:absolute; left:128px; bottom:64px; width:152px; height:38px; object-fit:contain">
+<p style="position:absolute; right:128px; bottom:64px; width:200px; font-size:24px; color:#64748B; text-align:right">08</p>
+
+</section>
+<section id="stall" data-transition="fade" style="background:#F7F9FC; color:#0B1A2E; font-family:'Poppins', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#0458BB">06 · Stall setup and team</p>
+<h2 style="font-size:56px; font-weight:600; letter-spacing:-1.5px; line-height:1.1">Two people at every stall, two stalls at most</h2>
+</div>
+<div style="display:flex; gap:64px">
+<div style="width:1000px; display:flex; flex-direction:column; gap:28px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">Who runs a stall</h3>
+<ul style="font-size:24px; line-height:1.4; color:#4A5568; display:flex; flex-direction:column; gap:8px">
+<li><b style="color:#0B1A2E">Brand lead</b> (RightKind team): pitches, pours the cups, answers questions, sells</li>
+<li><b style="color:#0B1A2E">Brand associate</b> (college intern hired for the campaign): screens people, points them to the QR code, hands out cups</li>
+<li><b style="color:#0B1A2E">Creator:</b> films reactions for RightKind's Instagram</li>
+<li><b style="color:#0B1A2E">Team:</b> two crews, so 2 people from the RightKind team and 2 interns</li>
+</ul>
+</div>
+<table style="font-size:24px; color:#4A5568; line-height:1.4">
+<tr style="background:#E6EEF9"><th style="width:20%; color:#0B1A2E; font-weight:600">Stall</th><th style="width:26%; color:#0B1A2E; font-weight:600">Hours</th><th style="width:16%; color:#0B1A2E; font-weight:600; text-align:right">Per day</th><th style="width:38%; color:#0B1A2E; font-weight:600">Pace</th></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Society</td><td>9 am to 7 pm</td><td style="text-align:right; font-variant-numeric:tabular-nums">300</td><td>30 an hour</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Tech park</td><td>10 am to 6 pm</td><td style="text-align:right; font-variant-numeric:tabular-nums">350</td><td>45 an hour</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Run club</td><td>6 to 8 am</td><td style="text-align:right; font-variant-numeric:tabular-nums">150</td><td>A rush at the finish</td></tr>
+</table>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:16px">
+<div style="background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:24px 32px; display:flex; flex-direction:column; gap:8px">
+<h3 style="font-size:28px; font-weight:600; line-height:1.2">Stall kit, 2 sets</h3>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">Branded table and backdrop, claim and QR standees, shakers, cold box, tablet. Run clubs: a folding table and the QR standee.</p>
+</div>
+<div style="background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:24px 32px; display:flex; flex-direction:column; gap:8px">
+<h3 style="font-size:28px; font-weight:600; line-height:1.2">Selling on the spot</h3>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">Society and tech park stalls sell sachets at Rs 150 and 8-sachet boxes at Rs 999. Run clubs don't sell.</p>
+</div>
+<div style="background:#FFFFFF; border:1px solid #E3E8EF; border-radius:16px; padding:24px 32px; display:flex; flex-direction:column; gap:8px">
+<h3 style="font-size:28px; font-weight:600; line-height:1.2">Training</h3>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">A 2-hour brief, a 30-second pitch and ready answers to common questions.</p>
+</div>
+</div>
+</div>
+<img src="assets/logo-color.png" alt="RightKind" style="position:absolute; left:128px; bottom:64px; width:152px; height:38px; object-fit:contain">
+<p style="position:absolute; right:128px; bottom:64px; width:200px; font-size:24px; color:#64748B; text-align:right">09</p>
+
+</section>
+<section id="tracking" data-transition="fade" style="background:#F7F9FC; color:#0B1A2E; font-family:'Poppins', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#0458BB">07 · Tracking and follow-up</p>
+<h2 style="font-size:56px; font-weight:600; letter-spacing:-1.5px; line-height:1.1">Every purchase traces back to a stall</h2>
+</div>
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px">
+<div style="background:#041023; border-radius:12px; padding:22px 24px; display:flex; flex-direction:column; gap:4px"><p style="font-size:24px; color:#4DE1F8; font-weight:600">1</p><p style="font-size:24px; color:#FFFFFF; line-height:1.3">Scan the stall's QR code</p></div>
+<div style="background:#041023; border-radius:12px; padding:22px 24px; display:flex; flex-direction:column; gap:4px"><p style="font-size:24px; color:#4DE1F8; font-weight:600">2</p><p style="font-size:24px; color:#FFFFFF; line-height:1.3">WhatsApp opens with the stall code typed in</p></div>
+<div style="background:#041023; border-radius:12px; padding:22px 24px; display:flex; flex-direction:column; gap:4px"><p style="font-size:24px; color:#4DE1F8; font-weight:600">3</p><p style="font-size:24px; color:#FFFFFF; line-height:1.3">We get their number, venue and permission to message</p></div>
+<div style="background:#041023; border-radius:12px; padding:22px 24px; display:flex; flex-direction:column; gap:4px"><p style="font-size:24px; color:#4DE1F8; font-weight:600">4</p><p style="font-size:24px; color:#FFFFFF; line-height:1.3">Associate adds persona, flavour and feedback</p></div>
+</div>
+<div style="display:flex; gap:64px">
+<div style="width:1000px; display:flex; flex-direction:column">
+<table style="font-size:24px; color:#4A5568; line-height:1.4">
+<tr style="background:#E6EEF9"><th style="width:28%; color:#0B1A2E; font-weight:600">Where they buy</th><th style="width:72%; color:#0B1A2E; font-weight:600">How we know it came from sampling</th></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">At the stall</td><td>The brand associate marks the person as a buyer when they register.</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">RightKind website</td><td>Match order phone numbers to our list, plus a sampling-only offer code.</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Blinkit / FirstClub</td><td>A brand-funded offer code only sampled people get. Backup: compare sales in sampled clusters against similar areas with no stalls.</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Amazon</td><td>Single-use claim codes sent on WhatsApp, one per sampled person.</td></tr>
+</table>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:28px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">Follow-up on WhatsApp</h3>
+<p style="font-size:24px; line-height:1.4; color:#4A5568">Personalised messages on days <b style="color:#0458BB">0, 3, 10 and 21</b>, based on each person's flavour, feedback, protein check result and where we met them.</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px">
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">What we measure</h3>
+<ul style="font-size:24px; line-height:1.4; color:#4A5568; display:flex; flex-direction:column; gap:8px">
+<li><b style="color:#0B1A2E">Buyers within 30 and 60 days</b>, by channel, cluster, venue type and persona</li>
+<li><b style="color:#0B1A2E">Repeat buyers</b> at 60 and 90 days</li>
+<li><b style="color:#0B1A2E">Taste scores and flavour picks:</b> which flavour wins with each persona</li>
+<li><b style="color:#0B1A2E">Cost per buyer</b> for each venue type</li>
+</ul>
+</div>
+</div>
+</div>
+<img src="assets/logo-color.png" alt="RightKind" style="position:absolute; left:128px; bottom:64px; width:152px; height:38px; object-fit:contain">
+<p style="position:absolute; right:128px; bottom:64px; width:200px; font-size:24px; color:#64748B; text-align:right">10</p>
+
+</section>
+<section id="cost" data-transition="fade" style="background:#F7F9FC; color:#0B1A2E; font-family:'Poppins', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:36px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#0458BB">08 · Cost</p>
+<h2 style="font-size:56px; font-weight:600; letter-spacing:-1.5px; line-height:1.1">About Rs 4 lakh net, Rs 8.7 lakh to run</h2>
+</div>
+<div style="display:flex; gap:56px">
+<div style="width:1040px; display:flex; flex-direction:column">
+<table style="font-size:24px; color:#4A5568; line-height:1.25">
+<tr style="background:#E6EEF9"><th style="width:31%; color:#0B1A2E; font-weight:600">Item</th><th style="width:41%; color:#0B1A2E; font-weight:600">How we got it</th><th style="width:17%; color:#0B1A2E; font-weight:600; text-align:right">Rs</th><th style="width:11%; color:#0B1A2E; font-weight:600; text-align:right">Share</th></tr>
+<tr style="background:#EEF1F5"><td style="color:#0B1A2E; font-weight:600">Running the stalls</td><td></td><td></td><td></td></tr>
+<tr><td style="color:#0B1A2E">Sachets</td><td>10,000 x Rs 20</td><td style="text-align:right; font-variant-numeric:tabular-nums">2,00,000</td><td style="text-align:right; color:#94A3B8">23%</td></tr>
+<tr><td style="color:#0B1A2E">Society stalls</td><td>20 days x Rs 10,000</td><td style="text-align:right; font-variant-numeric:tabular-nums">2,00,000</td><td style="text-align:right; color:#94A3B8">23%</td></tr>
+<tr><td style="color:#0B1A2E">Tech park stalls</td><td>4 days x Rs 40,000 avg</td><td style="text-align:right; font-variant-numeric:tabular-nums">1,60,000</td><td style="text-align:right; color:#94A3B8">18%</td></tr>
+<tr><td style="color:#0B1A2E">Run clubs, pickleball</td><td>51 events x Rs 2,000</td><td style="text-align:right; font-variant-numeric:tabular-nums">1,02,000</td><td style="text-align:right; color:#94A3B8">12%</td></tr>
+<tr><td style="color:#0B1A2E">Interns</td><td>2 x Rs 20,000 x 1.5 months</td><td style="text-align:right; font-variant-numeric:tabular-nums">60,000</td><td style="text-align:right; color:#94A3B8">7%</td></tr>
+<tr><td style="color:#0B1A2E">Stall kits</td><td>2 sets x Rs 15,000</td><td style="text-align:right; font-variant-numeric:tabular-nums">30,000</td><td style="text-align:right; color:#94A3B8">3%</td></tr>
+<tr><td style="color:#0B1A2E">Cups, shakers, ice</td><td>30,000 small cups</td><td style="text-align:right; font-variant-numeric:tabular-nums">30,000</td><td style="text-align:right; color:#94A3B8">3%</td></tr>
+<tr><td style="color:#0B1A2E">Creator, transport</td><td>Creator 15,000; cabs 30,000</td><td style="text-align:right; font-variant-numeric:tabular-nums">45,000</td><td style="text-align:right; color:#94A3B8">5%</td></tr>
+<tr style="background:#EEF1F5"><td style="color:#0B1A2E; font-weight:600">After the stall</td><td></td><td></td><td></td></tr>
+<tr><td style="color:#0B1A2E">WhatsApp follow-up</td><td>Tool, ~3 messages to 15,000</td><td style="text-align:right; font-variant-numeric:tabular-nums">45,000</td><td style="text-align:right; color:#94A3B8">5%</td></tr>
+<tr style="background:#E6EEF9"><td style="color:#0B1A2E; font-weight:700">Total</td><td></td><td style="color:#0B1A2E; font-weight:700; text-align:right; font-variant-numeric:tabular-nums">8,72,000</td><td style="color:#0B1A2E; font-weight:700; text-align:right">100%</td></tr>
+</table>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; gap:16px">
+<h3 style="font-size:30px; font-weight:600; line-height:1.2">Estimated sales at the stalls</h3>
+<div style="display:flex; flex-direction:column; gap:8px">
+<div style="display:flex; justify-content:space-between; gap:24px; border-bottom:1px solid #E3E8EF; padding:0px 0px 8px 0px"><p style="font-size:24px; color:#4A5568">Sampled where we sell</p><p style="font-size:24px; color:#0B1A2E; font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap">7,400</p></div>
+<div style="display:flex; justify-content:space-between; gap:24px; border-bottom:1px solid #E3E8EF; padding:0px 0px 8px 0px"><p style="font-size:24px; color:#4A5568">Buy at the stall (17%)</p><p style="font-size:24px; color:#0B1A2E; font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap">~1,260</p></div>
+<div style="display:flex; justify-content:space-between; gap:24px; border-bottom:1px solid #E3E8EF; padding:0px 0px 8px 0px"><p style="font-size:24px; color:#4A5568">Average order</p><p style="font-size:24px; color:#0B1A2E; font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap">Rs 500</p></div>
+<div style="display:flex; justify-content:space-between; gap:24px; border-bottom:1px solid #E3E8EF; padding:0px 0px 8px 0px"><p style="font-size:24px; color:#4A5568">Sales</p><p style="font-size:24px; color:#0B1A2E; font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap">~Rs 6.3L</p></div>
+<div style="display:flex; justify-content:space-between; gap:24px; border-bottom:1px solid #E3E8EF; padding:0px 0px 8px 0px"><p style="font-size:24px; color:#4A5568">Gross margin (75%)</p><p style="font-size:24px; color:#0B1A2E; font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap">~Rs 4.7L</p></div>
+</div>
+<div style="background:#041023; border-radius:16px; padding:24px 28px; display:flex; justify-content:space-between; align-items:center; gap:16px">
+<p style="font-size:24px; color:#A6B4C8">Net cost</p>
+<p style="font-size:44px; font-weight:600; letter-spacing:-1px; line-height:1.1; color:#4DE1F8; white-space:nowrap">~Rs 4L</p>
+</div>
+<p style="font-size:24px; line-height:1.4; color:#64748B">Only society and tech park stalls sell (6,000 + 1,400 people). Order: half sachets, half boxes. A sachet costs ~Rs 20, sells for Rs 120 to 150.</p>
+</div>
+</div>
+<img src="assets/logo-color.png" alt="RightKind" style="position:absolute; left:128px; bottom:64px; width:152px; height:38px; object-fit:contain">
+<p style="position:absolute; right:128px; bottom:64px; width:200px; font-size:24px; color:#64748B; text-align:right">11</p>
+
+</section>
+<section id="timeline" data-transition="fade" style="background:#F7F9FC; color:#0B1A2E; font-family:'Poppins', Arial, sans-serif; padding:112px 128px 160px; display:flex; flex-direction:column; gap:40px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#0458BB">09 · Timeline</p>
+<h2 style="font-size:56px; font-weight:600; letter-spacing:-1.5px; line-height:1.1">Five weeks in the field, plus a week to prepare</h2>
+</div>
+<table style="font-size:24px; color:#4A5568; line-height:1.4">
+<tr style="background:#E6EEF9"><th style="width:17%; color:#0B1A2E; font-weight:600">When</th><th style="width:11%; color:#0B1A2E; font-weight:600; text-align:right">Societies</th><th style="width:11%; color:#0B1A2E; font-weight:600; text-align:right">Tech parks</th><th style="width:15%; color:#0B1A2E; font-weight:600; text-align:right">Run club and pickleball</th><th style="width:46%; color:#0B1A2E; font-weight:600">What happens</th></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Prep week</td><td style="text-align:right; font-variant-numeric:tabular-nums">0</td><td style="text-align:right; font-variant-numeric:tabular-nums">0</td><td style="text-align:right; font-variant-numeric:tabular-nums">0</td><td>Book venues, hire and train the 2 interns, print kits, set up WhatsApp and the offer codes, confirm the Blinkit offer.</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Week 1 (pilot)</td><td style="text-align:right; font-variant-numeric:tabular-nums">4</td><td style="text-align:right; font-variant-numeric:tabular-nums">1</td><td style="text-align:right; font-variant-numeric:tabular-nums">9</td><td>Test every venue type. Check footfall, how many pass the screen and taste scores; fix the pitch and the numbers.</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Weeks 2 to 4</td><td style="text-align:right; font-variant-numeric:tabular-nums">12</td><td style="text-align:right; font-variant-numeric:tabular-nums">3</td><td style="text-align:right; font-variant-numeric:tabular-nums">33</td><td>Full run with both crews: weekends in societies, weekdays at run clubs, pickleball and tech parks.</td></tr>
+<tr><td style="color:#0B1A2E; font-weight:600">Week 5</td><td style="text-align:right; font-variant-numeric:tabular-nums">4</td><td style="text-align:right; font-variant-numeric:tabular-nums">0</td><td style="text-align:right; font-variant-numeric:tabular-nums">9</td><td>Last stalls; WhatsApp follow-ups run.</td></tr>
+<tr style="background:#EEF1F5"><td style="color:#0B1A2E; font-weight:700">Total</td><td style="color:#0B1A2E; font-weight:700; text-align:right; font-variant-numeric:tabular-nums">20</td><td style="color:#0B1A2E; font-weight:700; text-align:right; font-variant-numeric:tabular-nums">4</td><td style="color:#0B1A2E; font-weight:700; text-align:right; font-variant-numeric:tabular-nums">51</td><td style="color:#0B1A2E; font-weight:700">75 stall-days</td></tr>
+<tr><td style="color:#0458BB; font-weight:600">Day 30 and 60 after</td><td></td><td></td><td></td><td>Report: buyers by channel, cluster and persona; repeat rate; cost per buyer; flavour feedback.</td></tr>
+</table>
+<img src="assets/logo-color.png" alt="RightKind" style="position:absolute; left:128px; bottom:64px; width:152px; height:38px; object-fit:contain">
+<p style="position:absolute; right:128px; bottom:64px; width:200px; font-size:24px; color:#64748B; text-align:right">12</p>
+
+</section>
+<section id="outcome" data-transition="fade" style="background:linear-gradient(135deg, #041023 0%, #0A2A4F 100%); color:#FFFFFF; font-family:'Poppins', Arial, sans-serif; padding:96px 128px 128px; display:flex; flex-direction:column; justify-content:space-between">
+<div style="display:flex; flex-direction:column; gap:64px">
+<img src="assets/logo-white.png" alt="RightKind" style="width:240px; height:60px; object-fit:contain">
+<div style="display:flex; flex-direction:column; gap:24px">
+<p style="font-size:24px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#4DE1F8">In short: what RightKind gets</p>
+<h1 style="font-size:88px; font-weight:600; line-height:1.05; letter-spacing:-2.5px; color:#FFFFFF">2,550 buyers in 30 days,<br>each traced back to a stall</h1>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:40px">
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px; border-top:1px solid #1E3A5F; padding:40px 0px 0px 0px">
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:72px; font-weight:600; letter-spacing:-2px; line-height:1; color:#4DE1F8; font-variant-numeric:tabular-nums">2,550</p>
+<p style="font-size:24px; line-height:1.4; color:#A6B4C8">buyers within 30 days, about 17% of the 15,000 people sampled</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:72px; font-weight:600; letter-spacing:-2px; line-height:1; font-variant-numeric:tabular-nums">15,000</p>
+<p style="font-size:24px; line-height:1.4; color:#A6B4C8">people's taste scores and flavour picks, so we know which flavour wins</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:12px">
+<p style="font-size:72px; font-weight:600; letter-spacing:-2px; line-height:1; font-variant-numeric:tabular-nums">Rs 4L</p>
+<p style="font-size:24px; line-height:1.4; color:#A6B4C8">net cost after stall sales (about Rs 8.7L to run)</p>
+</div>
+</div>
+<p style="font-size:24px; line-height:1.4; color:#A6B4C8; width:1500px">Reports at day 30 and 60: buyers by channel, cluster and persona, repeat rate, cost per buyer and flavour feedback.</p>
+</div>
+
+</section>
+</main>
+<div class="bar"><button id="prev" aria-label="Previous slide">&larr;</button><span id="count">1 / 13</span><button id="next" aria-label="Next slide">&rarr;</button><a href="RightKind-Sampling-Plan-Deck.pdf">PDF</a></div>
+<div class="mobile-foot mobile-only">RightKind sampling plan · <a href="RightKind-Sampling-Plan-Deck.pdf">Download the deck as PDF</a></div>
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('#stage section'));
+  var i = 0, wide = window.matchMedia('(min-width: 900px)');
+  function fit(){
+    if(!wide.matches){ slides.forEach(function(s){ s.style.transform=''; }); return; }
+    var sc = Math.min(window.innerWidth/1920, (window.innerHeight-52)/1080);
+    slides.forEach(function(s){ s.style.transform='translate(-50%,-50%) translateY(-26px) scale('+sc+')'; });
+  }
+  function show(n){
+    i = Math.max(0, Math.min(slides.length-1, n));
+    slides.forEach(function(s,k){ s.classList.toggle('active', k===i); });
+    document.getElementById('count').textContent = (i+1)+' / '+slides.length;
+    if(history.replaceState) history.replaceState(null,'','#'+(i+1));
+  }
+  document.getElementById('prev').onclick=function(){ show(i-1); };
+  document.getElementById('next').onclick=function(){ show(i+1); };
+  document.addEventListener('keydown', function(e){
+    if(!wide.matches) return;
+    if(['ArrowRight','PageDown',' '].indexOf(e.key)>-1){ e.preventDefault(); show(i+1); }
+    if(['ArrowLeft','PageUp'].indexOf(e.key)>-1){ e.preventDefault(); show(i-1); }
+  });
+  var tx=null;
+  document.addEventListener('touchstart', function(e){ tx=e.touches[0].clientX; }, {passive:true});
+  document.addEventListener('touchend', function(e){ if(!wide.matches||tx===null) return; var dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>50) show(dx<0?i+1:i-1); tx=null; }, {passive:true});
+  window.addEventListener('resize', fit);
+  window.addEventListener('hashchange', function(){ var n=parseInt(location.hash.slice(1),10); if(!isNaN(n)&&n-1!==i) show(n-1); });
+  if(wide.addEventListener) wide.addEventListener('change', fit);
+  var start = parseInt((location.hash||'').slice(1),10);
+  fit(); show(isNaN(start)?0:start-1);
+})();
+</script>
+</body></html>
